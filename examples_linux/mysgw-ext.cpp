@@ -47,6 +47,7 @@
 //#define MY_MQTT_CLIENT_ID "mysensors-1"
 //#define MY_MQTT_PUBLISH_TOPIC_PREFIX "mygateway1-out"
 //#define MY_MQTT_SUBSCRIBE_TOPIC_PREFIX "mygateway1-in"
+#define MY_MQTT_LWT_TOPIC "lwt"
 
 // Enable these if your MQTT broker requires username/password
 //#define MY_MQTT_USER "username"
