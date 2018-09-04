@@ -1475,6 +1475,34 @@
 //#define MY_MQTT_SUBSCRIBE_TOPIC_PREFIX "mygateway1-in"
 
 /**
+ * @def MY_MQTT_LWT_TOPIC
+ * @brief Transmit last will message to MY_MQTT_PUBLISH_TOPIC_PREFIX/MY_MQTT_LWT_TOPIC
+ *
+ * If this is enbaled you have to specify MY_MQTT_LWT_ONLINE_MSG and MY_MQTT_LWT_OFFLINE_MSG
+ */
+//#define MY_MQTT_LWT_TOPIC "lwt"
+
+/**
+ * @def MY_MQTT_LWT_ONLINE_MSG
+ * @brief gateway online message
+ *
+ * This message will published on mqtt connect.
+ */
+#ifdef MY_MQTT_LWT_TOPIC
+	#define MY_MQTT_LWT_ONLINE_MSG "online"
+#endif
+
+/**
+ * @def MY_MQTT_LWT_OFFLINE_MSG
+ * @brief gateway offline message
+ *
+ * This message will published on mqtt disconnect or connection lost.
+ */
+#ifdef MY_MQTT_LWT_TOPIC
+	#define MY_MQTT_LWT_OFFLINE_MSG "offline"
+#endif
+
+/**
  * @def MY_IP_ADDRESS
  * @brief Static ip address of gateway. If not defined, DHCP will be used.
  *
