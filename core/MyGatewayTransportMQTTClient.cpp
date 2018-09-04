@@ -135,12 +135,12 @@ bool reconnectMQTT(void)
 #endif
 		// transmit last will message testament
 #if defined(MY_MQTT_LWT_TOPIC) && defined(MY_MQTT_LWT_OFFLINE_MSG)
-		, MY_MQTT_LWT_TOPIC, 1, true, MY_MQTT_LWT_OFFLINE_MSG
+		, MY_MQTT_PUBLISH_TOPIC_PREFIX "/" MY_MQTT_LWT_TOPIC, 1, true, MY_MQTT_LWT_OFFLINE_MSG
 #endif
 	                        )) {
 		// notify connection state
 #if defined(MY_MQTT_LWT_TOPIC) && defined(MY_MQTT_LWT_ONLINE_MSG)
-		_MQTT_client.publish(MY_MQTT_SUBSCRIBE_TOPIC_PREFIX "/lwt", MY_MQTT_LWT_ONLINE_MSG, true);
+		_MQTT_client.publish(MY_MQTT_PUBLISH_TOPIC_PREFIX "/" MY_MQTT_LWT_TOPIC, MY_MQTT_LWT_ONLINE_MSG, true);
 #endif
 
 		GATEWAY_DEBUG(PSTR("GWT:RMQ:MQTT CONNECTED\n"));
